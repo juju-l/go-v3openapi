@@ -3,7 +3,7 @@ package main
 import (
 	//
 	"github.com/gin-gonic/gin"
-	"go-v3openapi/v3"
+	"openapi/v3"
 )
 
 //
