@@ -1,27 +1,21 @@
-package v3
+package main
 
 import (
-	/**/ "embed"; "net/http"; "io/fs" /**/
+	//
+	"github.com/gin-gonic/gin"
+	"go-v3openapi/v3"
 )
 
 //
 
-//go:embed v3
-var f embed.FS //
-func OpenapiV3()http.Handler {
-	m := http.NewServeMux()
-	s,e := fs.Sub(f, "v3")
-	if e != nil {
-	panic(e)
-	}
-	m.Handle("/swg/openapi/",//*any",
-	http.StripPrefix(
-	"/swg/openapi/"/*any"*/,http.FileServer(http.FS(s)),/**/
-	),
-	/**/)
-	return m
+func main() {
+	r := gin.Default()
+	r.GET("/openapi/v3", func(c *gin.Context) { c.File("./openapiv3.yml") }, /**/)//
+	r.GET("/swg/openapi/*any", func(c *gin.Context) { v3.OpenapiV3().ServeHTTP(c.Writer,c.Request) }, /**/)//
+	r.GET("/", func(c *gin.Context) { c.Redirect(307, "/swg/openapi") }, /**/)//
+	r.Run(":8077")
 }
 
 func init() {
-  //
+	//
 }
