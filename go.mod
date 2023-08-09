@@ -1,4 +1,4 @@
-module openapi
+module github.com/juju-l/go-v3openapi
 
 	require github.com/gin-gonic/gin v1.8.1
 
