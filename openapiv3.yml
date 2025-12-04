@@ -1,13 +1,13 @@
+
 # Generated with protoc-gen-openapi
 # https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
-
 openapi: 3.0.3
 info:
     title: Wx API
     #description: 
     version: 0.1.0
 servers:
-    - url: https://i.vipex.cc/
+    - url: https://xxx.vipex.cc:[ports]/
 paths:
     /v1/Auth:
         get:
@@ -19,6 +19,18 @@ paths:
                   in: query
                   schema:
                     type: string
+                   #..
+            # requestBody:
+            #     content:
+            #         application/json:
+            #             schema:
+            #                 properties:
+            #                     code: {type: string,description:,example: "debug"}
+            #              #..
+            #          #..
+            #      #..
+            #  #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -26,26 +38,41 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             #security:
-            #  - api_key:
-            #    -  token
+            #    - api_key:
+            #        - token
+            # #..
+         #..
+     #..
     /v1/UpContents:
         post:
             tags:
                 - Wx
             operationId: Wx_UpContents
+            #..parameters:
+                #..
             requestBody:
                 content:
-                    application/json:
+                    application/octet-stream:
                         schema:
                             type: string
+                            format: binary
+                            #..
                 required: true
+                #..
+             #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -53,15 +80,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+     #..
     /v1/GetAvatarUrl/{openid}:
         get:
             tags:
@@ -70,13 +105,22 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: url
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -84,15 +128,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+      #..
     /v1/UpBusinessInfo/{openid}/{businessid}:
         get:
             tags:
@@ -101,22 +153,32 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
                 - name: businessid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: name
                   in: query
                   schema:
                     type: string
+                   #..
                 - name: num
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -124,15 +186,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+      #..
     /v1/GetBusinessInfo/{openid}:
         get:
             tags:
@@ -141,13 +211,22 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: entid
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -155,15 +234,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+      #..
     /v1/GetDetails/{openid}/{type}:
         get:
             tags:
@@ -172,23 +259,32 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
                 - name: type
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: entid
                   in: query
                   schema:
                     type: string
+                   #..
                 - name: id
                   in: query
-                  description: string ordid = 13; string repid = 14;
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -196,15 +292,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+      #..
     /v1/GetOrder/{openid}:
         get:
             tags:
@@ -213,13 +317,22 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: entid
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -227,15 +340,23 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+      #..
     /v1/GetCnts:
         post:
             tags:
@@ -246,30 +367,44 @@ paths:
                   in: query
                   schema:
                     type: string
+                   #..
                 - name: entid
                   in: query
                   schema:
                     type: string
+                   #..
                 - name: sig
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
                     content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                        '*/*': {} #application/json:
+                            #schema:
+                                #$ref: '#/components/schemas/WxResponse'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             #security:
-            #  - api_key:
-            #    -  token
+            #    - api_key:
+            #        - token
+            # #..
+         #..
+      #..
     /v1/GetRepair/{openid}:
         get:
             tags:
@@ -278,13 +413,24 @@ paths:
             parameters:
                 - name: openid
                   in: path
-                  required: true
                   schema:
                     type: string
+                   #..
+                #- name: 
+                #  example: ""
+                #  default:
+                #  in: path
+                #  schema:
+                #    type: 
+                #   #..
                 - name: entid
                   in: query
                   schema:
                     type: string
+                   #..
+            requestBody:
+                #..
+            description:
             responses:
                 "200":
                     description: OK
@@ -292,15 +438,24 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/WxResponse'
-                #default:
-                #    description: Default error response
-                #    content:
-                #        application/json:
-                #            schema:
-                #                $ref: '#/components/schemas/Status'
+                    #..
+                 #..
+                # default:
+                #     description: Default error response
+                #     content:
+                #         application/json:
+                #             schema:
+                #                 $ref: '#/components/schemas/Status'
+                #     #..
+                #  #..
+                #..
             security:
-              - api_key:
-                - token
+                - api_key:
+                    - token
+             #..
+         #..
+     #..
+ #..
 components:
     #headers:
         #
@@ -311,8 +466,12 @@ components:
                 '@type':
                     type: string
                     description: The type of the serialized message.
+                    #..
+             #..
             additionalProperties: true
             description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+            #..
+         #..
         Status:
             type: object
             properties:
@@ -323,11 +482,13 @@ components:
                 message:
                     type: string
                     description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                    #..
                 details:
                     type: array
                     items:
                         $ref: '#/components/schemas/GoogleProtobufAny'
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+                 #..
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
         WxResponse:
             type: object
@@ -335,18 +496,23 @@ components:
                 errCode:
                     type: integer
                     format: int32
+                    #..
                 data:
                     type: object
                 errMsg:
                     type: string
+            #..
     securitySchemes:
-      api_key:
-        type: apiKey
-        in: header
-        name: token
+        api_key:
+            type: apiKey
+            in: header
+            name: token
+     #..
 #security:
 #    - petstore_auth:
 #        - write:pets
+# #..
 tags:
     - name: Wx
+
 

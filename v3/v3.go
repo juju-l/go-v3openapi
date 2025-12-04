@@ -8,7 +8,7 @@ import (
 
 //go:embed *
 var f embed.FS //
-func OpenapiV3()http.Handler {
+func OpenapiV3() http.Handler{
 	m := http.NewServeMux()
 	s,e := fs.Sub(f, ".")
 	if e != nil {
