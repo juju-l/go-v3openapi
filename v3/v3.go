@@ -1,14 +1,12 @@
 package v3
 
 import (
-	/**/ "embed"; "net/http"; "io/fs" /**/
+	"embed"; "net/http"; "io/fs"
 )
-
-//
-
+///
 //go:embed *
-var f embed.FS //
-func OpenapiV3() http.Handler{
+var f embed.FS ///
+func Openapi() http.Handler{
 	m := http.NewServeMux()
 	s,e := fs.Sub(f, ".")
 	if e != nil {
@@ -16,10 +14,10 @@ func OpenapiV3() http.Handler{
 	}
 	m.Handle("/swg/openapi/",//*any",
 	http.StripPrefix(
-	"/swg/openapi/"/*any"*/,http.FileServer(http.FS(s)),/**/
+	"/swg/openapi/"/*any"*/,http.FileServer(http.FS(s)),//___
 	),
 	/**/)
-	return m
+	return m ///
 }
 
 func init() {
